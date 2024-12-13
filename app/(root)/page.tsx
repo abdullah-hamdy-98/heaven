@@ -1,5 +1,4 @@
-// import HeroSection from "@/components/shared/heroSection/HeroSection";
-import HeroSection  from "@/components/shared/heroSection/herotwo";
+import HeroSection  from "@/components/shared/heroSection/HeroSection";
 
 import AboutUs from "./About-Us/page";
 import Services from "./Services/page";
