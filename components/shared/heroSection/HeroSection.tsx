@@ -12,7 +12,6 @@ function HeroSection() {
 
     useEffect(() => {
         const textElement = textRef.current || { children: [] };
-        const imageElement = imageRef.current;
         const imageContainer = imageContainerRef.current;
 
         const tl = gsap.timeline({ defaults: { ease: "power3.out" } });
