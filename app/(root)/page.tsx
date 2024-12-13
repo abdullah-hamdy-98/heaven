@@ -1,9 +1,17 @@
+// import HeroSection from "@/components/shared/heroSection/HeroSection";
+import HeroSection  from "@/components/shared/heroSection/herotwo";
 
+import AboutUs from "./About-Us/page";
+import Services from "./Services/page";
+import Portfolio from "./Portfolio/page";
+import ContactUs from "./Contact/page";
+import Careers from "./Careers/page";
 
-function Home() {
+export default function Home() {
   return (
-    <>Home</>
+    <div>      
+      <HeroSection />
+      <AboutUs />
+    </div>
   );
 }
-
-export default Home;

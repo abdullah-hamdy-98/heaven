@@ -17,7 +17,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
-        <main className="flex flex-col items-center justify-between p-8">
+        <main className="flex flex-col items-center justify-between">
           <Navbar />
           <section className="flex flex-col items-center justify-center w-full h-screen">
             {children}
