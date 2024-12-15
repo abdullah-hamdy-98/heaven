@@ -54,7 +54,8 @@ function HeroSection() {
     }, []);
 
     return (
-        <section className="flex flex-col md:flex-row items-center justify-between px-6 md:px-12 py-10 md:py-16 relative">
+        <section className="flex flex-col md:flex-row items-center justify-between  px-6 md:px-12 py-10 md:py-16 relative"
+        id="heroSection">
             {/* Left Content */}
             <div
                 className="md:w-1/2 text-center md:text-left space-y-6 order-2 md:order-1"

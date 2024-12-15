@@ -13,7 +13,7 @@ function Navbar() {
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
     return (
-        <div className="flex flex-row items-center w-full sticky top-4 z-50 px-4 md:px-6 md:py-2 lg:px-8 lg:py-2">
+        <div className="flex flex-row items-center w-full z-50 px-4 md:px-6 md:py-2 lg:px-12 lg:py-4">
 
             {/* Logo */}
             <div className="mr-auto w-24 md:w-30 lg:w-32">

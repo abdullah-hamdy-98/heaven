@@ -15,11 +15,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body>
+    <html lang="en" suppressHydrationWarning>
+      <body suppressHydrationWarning>
         <main className="flex flex-col items-center justify-between">
           <Navbar />
-          <section className="flex flex-col items-center justify-center w-full h-screen">
+          <section className="relative min-h-screen w-full">
             {children}
           </section>
         </main>
