@@ -20,15 +20,15 @@ function AboutUsComponent() {
         // Text color and fill animation (ensure text fully loads)
         gsap.fromTo(
             [numberElement, aboutElement, textElement],
-            { 
-                color: 'rgba(89, 85, 79, 0.3)', 
+            {
+                color: 'rgba(89, 85, 79, 0.3)',
                 backgroundImage: 'linear-gradient(to right, rgba(89, 85, 79,0.3) 0%, rgba(89, 85, 79,0.3) 100%)',
                 backgroundClip: 'text',
                 webkitBackgroundClip: 'text',
                 webkitTextFillColor: 'transparent'
             },
             {
-                color: 'rgba(89, 85, 79, 1)', 
+                color: 'rgba(89, 85, 79, 1)',
                 backgroundImage: 'linear-gradient(to right, rgba(89, 85, 79,1) 0%, rgba(89, 85, 79,1) 100%)',
                 backgroundClip: 'text',
                 webkitBackgroundClip: 'text',
@@ -48,7 +48,7 @@ function AboutUsComponent() {
         // Optional: Enhanced animations with smooth fade, scale, and rotation for text and elements
         gsap.fromTo(
             [numberElement, aboutElement, textElement],
-            { 
+            {
                 opacity: 0,
                 scale: 0.95,
                 rotation: 10
@@ -81,15 +81,20 @@ function AboutUsComponent() {
     }, []);
 
     return (
-        <section 
-            ref={sectionRef} 
-            className="container bg-gradient-to-r from-background to-alternativebackground p-4 h-screen"
+        <section
+            ref={sectionRef}
+
+            className="bg-gradient-to-r from-background to-alternativebackground p-4 relative h-screen"
+            style={{
+                 clipPath: 'polygon(0% 0%, 5% 5%, 10% 0%, 20% 5%, 30% 0%, 40% 0%, 50% 5%, 60% 0%, 70% 5%, 80% 0%, 90% 5%, 100% 0%, 100% 100%, 0% 100%)'
+            }}
+
             id="aboutUs"
         >
             <div className="grid grid-cols-1 md:grid-cols-6 grid-rows-auto md:grid-rows-5 gap-4 text-foreground">
                 {/* Section 01 */}
                 <div className="col-span-1 row-span-1 md:row-span-2 px-6 text-center md:text-left">
-                    <h1 
+                    <h1
                         ref={numberRef}
                         className="font-english font-medium text-[4rem] md:text-[8rem] lg:text-[10rem]"
                     >
@@ -98,7 +103,7 @@ function AboutUsComponent() {
                 </div>
                 {/* Section About */}
                 <div className="col-span-3 row-span-1 md:row-span-2 md:col-start-1 md:row-start-3 px-6 text-center md:text-left">
-                    <h1 
+                    <h1
                         ref={aboutRef}
                         className="font-english font-medium text-[4rem] md:text-[8rem] lg:text-[10rem]"
                     >
@@ -108,7 +113,7 @@ function AboutUsComponent() {
                 {/* Section Content */}
                 <div className="col-span-1 md:col-span-4 md:row-span-5 md:col-start-4 md:row-start-3">
                     <div className="w-full p-4 md:p-6">
-                        <p 
+                        <p
                             ref={textRef}
                             className="font-english font-medium text-base md:text-lg lg:text-xl"
                         >

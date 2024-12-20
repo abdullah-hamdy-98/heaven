@@ -1,8 +1,10 @@
 export const navItems = [
-    { label: 'Home', path: '/' },
-    { label: 'Services', path: '/Services' },
-    { label: 'Projects', path: '/Portfolio' },
-    { label: 'About', path: '/About-Us' },
-    { label: 'Contact', path: '/Contact' },
-    { label: 'Careers', path: '/Careers' },
+    { title: 'Home', href: '/' },
+    { title: 'Services', href: '/Services' },
+    { title: 'Projects', href: '/Portfolio' },
+    { title: 'About', href: '/About-Us' },
+    { title: 'Contact', href: '/Contact' },
+    { title: 'Careers', href: '/Careers' },
   ];
+
+  

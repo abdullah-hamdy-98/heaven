@@ -4,7 +4,9 @@
 import Image from "next/image";
 import React, { useEffect, useRef } from "react";
 import { gsap } from "gsap";
-import Link from "next/link";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+gsap.registerPlugin(ScrollTrigger);
 
 function HeroSection() {
     const textRef = useRef(null);
@@ -14,9 +16,11 @@ function HeroSection() {
     useEffect(() => {
         const textElement = textRef.current || { children: [] };
         const imageContainer = imageContainerRef.current;
+        const image = imageRef.current;
 
         const tl = gsap.timeline({ defaults: { ease: "power3.out" } });
 
+        // Initial animations
         tl.fromTo(
             textElement.children[0],
             { opacity: 0, x: -50 },
@@ -51,11 +55,25 @@ function HeroSection() {
             },
             "-=1"
         );
+
+        gsap.to(image, {
+            scale: 0.9,
+            opacity: 0.9,
+            scrollTrigger: {
+                trigger: imageContainer,
+                start: "top top",
+                end: "bottom top",
+                scrub: true,
+            },
+        });
     }, []);
 
     return (
-        <section className="flex flex-col md:flex-row items-center justify-between  px-6 md:px-12 py-10 md:py-16 relative"
-        id="heroSection">
+        <section
+            className="flex flex-col md:flex-row items-center justify-between px-6 md:px-12 py-10 md:py-16 h-screen sticky top-0"
+            ref={imageRef}
+
+        >
             {/* Left Content */}
             <div
                 className="md:w-1/2 text-center md:text-left space-y-6 order-2 md:order-1"
@@ -79,21 +97,18 @@ function HeroSection() {
                     requirements, guaranteeing unparalleled success and excellence.
                 </p>
                 <div>
-                    <Link href="/Contact">
-                        
-                            <button
-                                className="relative py-2 px-6 text-white text-md tracking-wider border border-foreground rounded-full 
-                outline-none bg-transparent cursor-pointer select-none transition-all duration-400 group uppercase"
-                            >
-                                Contact us
-                                <span
-                                    className="absolute inset-0 bg-primary rounded-full transition-all duration-400 transform 
-                    translate-y-0.5 -translate-x-0.5 group-hover:translate-x-0 group-hover:translate-y-0 -z-10"
-                                >
-                                </span>
-                            </button>
-                        
-                    </Link>
+                    <a href="/Contact">
+                        <button
+                            className="relative py-2 px-6 text-white text-md tracking-wider border border-foreground rounded-full 
+                            outline-none bg-transparent cursor-pointer select-none transition-all duration-400 group uppercase"
+                        >
+                            Contact us
+                            <span
+                                className="absolute inset-0 bg-primary rounded-full transition-all duration-400 transform 
+                                translate-y-0.5 -translate-x-0.5 group-hover:translate-x-0 group-hover:translate-y-0 -z-10"
+                            ></span>
+                        </button>
+                    </a>
                 </div>
             </div>
 
@@ -103,7 +118,6 @@ function HeroSection() {
                 ref={imageContainerRef}
             >
                 <Image
-                    ref={imageRef}
                     src="/Images/layout/plane-outline.png"
                     layout="fill"
                     objectFit="contain"

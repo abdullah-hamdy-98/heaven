@@ -1,7 +1,6 @@
 "use client";
 
 import Image from "next/image";
-import Link from "next/link";
 import { useState } from "react";
 import { usePathname } from "next/navigation";
 
@@ -13,19 +12,19 @@ function Navbar() {
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
     return (
-        <div className="flex flex-row items-center w-full z-50 px-4 md:px-6 md:py-2 lg:px-12 lg:py-4">
+        <div className="flex flex-row items-center w-full px-4 md:px-6 md:py-2 lg:px-12 lg:py-4">
 
             {/* Logo */}
-            <div className="mr-auto w-24 md:w-30 lg:w-32">
-                <Link href="/" passHref>
+            <div className="mr-auto w-16 md:w-24 lg:w-24 p-1">
+                <a href="/" >
                     <Image
-                        src="/Images/layout/Heaven_Agency_logo.png"
+                        src="/Images/layout/Heaven_Agency_logo1.png"
                         alt="Heaven Agency Logo"
                         width={150}
                         height={40}
                         className="w-full h-auto"
                     />
-                </Link>
+                </a>
             </div>
 
 
@@ -34,25 +33,25 @@ function Navbar() {
                 <nav>
                     <ul className="flex lg:flex-row gap-2 text-md text-foreground uppercase">
                         {navItems.map((item) => (
-                            <li key={item.path} className="font-english font-medium text-sm transition-all duration-400 hover:text-primary">
-                                <Link href={item.path} passHref>
+                            <li key={item.href} className="font-english font-medium text-sm transition-all duration-400 hover:text-primary">
+                                <a href={item.href}>
                                     <button
                                         className={`relative py-1 px-6 uppercase
-                                            ${currentPath === item.path
+                                            ${currentPath === item.href
                                                 ? `text-white text-md tracking-wider border border-foreground rounded-full outline-none bg-transparent cursor-pointer select-none 
                                                 transition-all duration-400 group uppercase`
                                                 : `bg-none`}`}
                                     >
-                                        {item.label}
+                                        {item.title}
                                         <span
                                             className={`absolute inset-0 
-                                            ${currentPath === item.path
+                                            ${currentPath === item.href
                                                     ? `bg-primary rounded-full transition-all duration-400 transform translate-y-0.5 -translate-x-0.5 group-hover:translate-x-0 group-hover:translate-y-0 -z-10`
                                                     : `bg-none`}`}
                                         >
                                         </span>
                                     </button>
-                                </Link>
+                                </a>
                             </li>
                         ))}
                     </ul>
@@ -85,16 +84,16 @@ function Navbar() {
                             <nav className="py-6 px-4">
                                 <ul className="flex flex-col gap-2 text-md text-foreground uppercase ">
                                     {navItems.map((item) => (
-                                        <li key={item.path} className="font-english font-medium ">
-                                            <Link
-                                                href={item.path}
-                                                className={`block py-2 px-10 rounded-lg whitespace-nowrap  ${currentPath === item.path
+                                        <li key={item.href} className="font-english font-medium ">
+                                            <a
+                                                href={item.href}
+                                                className={`block py-2 px-10 rounded-lg whitespace-nowrap  ${currentPath === item.href
                                                     ? 'bg-primary text-white'
                                                     : 'hover:bg-gray-100/20 dark:hover:bg-gray-800/30'
                                                     }`}
                                             >
-                                                {item.label}
-                                            </Link>
+                                                {item.title}
+                                            </a>
                                         </li>
                                     ))}
                                 </ul>
@@ -128,7 +127,7 @@ function Navbar() {
 
 
                 {/* Login */}
-                <Link
+                <a
                     href="/api/auth"
                     className={`group ${currentPath === '/api/auth' ? 'text-primary' : 'text-foreground'}`}
                 >
@@ -153,7 +152,7 @@ function Navbar() {
                             <circle cx="12" cy="12" r="10" />
                         </svg>
                     </div>
-                </Link>
+                </a>
             </div>
         </div>
     );

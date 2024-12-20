@@ -2,7 +2,7 @@ import Image from "next/image";
 
 function ProjectsOld() {
     return (
-        <section className="container h-screen bg-gradient-to-r from-background to-alternativebackground p-4"
+        <section className="container relative h-screen bg-gradient-to-r from-background to-alternativebackground p-4"
             id="projects">
             <div className="flex flex-col gap-2 items-center text-center p-6">
                 <h2 className="font-english font-normal text-[7rem] text-foreground">
